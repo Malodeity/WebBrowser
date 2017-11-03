@@ -38,7 +38,8 @@ namespace WebBrowser
         {
             if (e.KeyChar == (char)ConsoleKey.Enter)
             {
-                button1_Click(null, null);
+                //button1_Click(null, null);
+                NavigateToPage();
             }
         }
 
@@ -46,7 +47,10 @@ namespace WebBrowser
         {
             button1.Enabled = true;
             textBox1.Enabled = true;
-            toolStripProgressBar1.Text = "Completed";
+            toolStripStatusLabel1.Text = "Loading Complete";
+           
+            
+
         }
 
         private void webBrowser1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
@@ -54,6 +58,7 @@ namespace WebBrowser
             if(e.CurrentProgress > 0 && e.MaximumProgress > 0)
             {
                 toolStripProgressBar1.ProgressBar.Value = (int)(e.CurrentProgress * 100 / e.MaximumProgress);
+                
             }
         }
     }
